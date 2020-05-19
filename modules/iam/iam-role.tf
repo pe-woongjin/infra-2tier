@@ -1,3 +1,8 @@
+resource "aws_iam_instance_profile" "ec2-role_profile" {
+  name =  "codedeploy-ec2-role-profile"
+  role =  aws_iam_role.codedeploy-ec2-role.name
+}
+
 resource "aws_iam_role" "codedeploy-ec2-role" {
   name = "codedeploy-ec2-role"
 
@@ -23,9 +28,19 @@ EOF
   }
 }
 
-resource "aws_iam_role_policy_attachment" "ec2-role-attach" {
+resource "aws_iam_role_policy_attachment" "ec2-role-attach-cd" {
   role        = aws_iam_role.codedeploy-ec2-role.name
-  policy_arn  = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforAWSCodeDeploy"
+  policy_arn  = "arn:aws:iam::aws:policy/AWSCodeDeployFullAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "ec2-role-attach-s3" {
+  role        = aws_iam_role.codedeploy-ec2-role.name
+  policy_arn  = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+}
+
+resource "aws_iam_role_policy_attachment" "ec2-role-attach-cdr" {
+  role        = aws_iam_role.codedeploy-ec2-role.name
+  policy_arn  = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
 }
 
 resource "aws_iam_role" "codedeploy-role" {
@@ -53,7 +68,7 @@ EOF
   }
 }
 
-resource "aws_iam_role_policy_attachment" "codedeploy-role-attach" {
+resource "aws_iam_role_policy_attachment" "cd-role-attach" {
   role        = aws_iam_role.codedeploy-role.name
   policy_arn  = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
 }
