@@ -4,13 +4,21 @@
 variable "environment" {
   description = "Runtime Environment such as default, develop, stage, production"
   type = string
+  default = "prd"
 }
 
 
 # ######################
-# Dynamo DB
+# S3
 # ######################
-variable "dynamodb_tbl" {
-  description = "dynamo db table name"
+variable "s3_log" {
+  description = "s3 log bucket name"
   type = string
+  default = "infra2tier-tfstates-log"
+}
+
+variable "s3_mgmt" {
+  description = "s3 mgmt bucket name"
+  type = string
+  default = "infra2tier-tfstates-mgmt"
 }

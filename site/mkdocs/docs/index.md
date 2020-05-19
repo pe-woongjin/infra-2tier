@@ -37,7 +37,7 @@ cmd $ cd workspace
 
 /* git clone */
 cmd $ git clone https://github.com/pe-woongjin/infra-2tier.git
-cmd $ cd ~/workspace/infra-2tier/modules
+cmd $ cd ~/workspace/infra-2tier
 ```
 
 ###### 2.3 terraform 단계별 적용

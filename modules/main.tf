@@ -3,7 +3,7 @@ terraform {
 
   backend "s3" {
     bucket          = "infra2tier-tfstates-mgmt"
-    key             = "infra2tier/elb/terraform.tfstate"
+    key             = "infra2tier/base/terraform.tfstate"
     region          = "ap-northeast-2"
     dynamodb_table  = "infra2tier-lock-table"
     encrypt         = true
@@ -13,6 +13,24 @@ terraform {
 
 provider "aws" {
   version                   = "~> 2.51"
-  region                    = var.region_name
+  region                    = "ap-northeast-2"
   shared_credentials_file   = "~/.aws/credentials"
+}
+
+module "vpc" {
+  source = "./vpc"
+}
+
+module "elb" {
+  source = "./elb"
+
+  # vpc
+  vpc_id = module.vpc.vpc_id
+
+  # subnets
+  pub_sn_ids = module.vpc.pub_sn_ids
+}
+
+module "iam" {
+  source = "./iam"
 }
