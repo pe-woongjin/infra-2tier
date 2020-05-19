@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Infra-2tier</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "\uc18c\uac1c";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> Infra-2tier</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">소개</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-iam-aws-cli">1. IAM 계정 생성 및 AWS CLI 를 통한 로컬 환경 구성</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-terraform">2. terraform 설치 및 적용</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#21-terraform">2.1 terraform 설치</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#22-terraform-git-clone">2.2. terraform 프로젝트 구성 (git clone)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#23-terraform">2.3 terraform 단계별 적용</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="directory/">디렉토리</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="repository/">tf-repository</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="vpc/">vpc</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="elb/">elb</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="iam/">iam</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Infra-2tier</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>소개</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="infra-2tier">Infra-2tier 소개</h2>
+<hr />
+<p>Infra 2tier Architecture를 Terraform으로 구현한 프로젝트입니다.  <br />
+프로젝트 빌드 및 실행은 다음과 같은 순서로 이루어집니다.  </p>
+<blockquote></blockquote>
+<h5 id="1-iam-aws-cli">1. IAM 계정 생성 및 AWS CLI 를 통한 로컬 환경 구성</h5>
+<ul>
+<li>aws iam account 생성 (aws console)<br />
+AWS 관리 콘솔에서 프로그래밍 방식 로그인 계정 생성 및 AdministratorRole 부여  <blockquote></blockquote>
+</li>
+<li>awscli install  </li>
+</ul>
+<pre><code class="console">cmd $ brew install awscli
+</code></pre>
+
+<ul>
+<li>AWS local 환경 설정 </li>
+</ul>
+<pre><code class="console">    cmd $ aws configure
+
+    AWS Access Key ID [****************KCPQ]: 
+    AWS Secret Access Key [****************OSRk]: 
+    Default region name [ap-northeast-2]: 
+    Default output format [None]: 
+</code></pre>
+
+<h5 id="2-terraform">2. terraform 설치 및 적용</h5>
+<h6 id="21-terraform">2.1 terraform 설치</h6>
+<ul>
+<li>terraform install</li>
+</ul>
+<pre><code class="console">cmd $ brew install terraform
+</code></pre>
+
+<h6 id="22-terraform-git-clone">2.2. terraform 프로젝트 구성 (git clone)</h6>
+<pre><code class="console">cmd $ cd ~
+cmd $ mkdir workspace
+cmd $ cd workspace
+
+/* git clone */
+cmd $ git clone https://github.com/pe-woongjin/infra-2tier.git
+cmd $ cd ~/workspace/infra-2tier/modules
+</code></pre>
+
+<h6 id="23-terraform">2.3 terraform 단계별 적용</h6>
+<ul>
+<li>초기 구성</li>
+</ul>
+<pre><code class="console">cmd $ terraform init
+</code></pre>
+
+<ul>
+<li>플랜 및 검증</li>
+</ul>
+<pre><code class="console">cmd $ terraform plan
+</code></pre>
+
+<ul>
+<li>프로비저닝</li>
+</ul>
+<pre><code class="console">cmd $ terraform apply
+</code></pre>
+
+<ul>
+<li>인프라 삭제</li>
+</ul>
+<pre><code class="console">cmd $  terraform destory
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="directory/" class="btn btn-neutral float-right" title="디렉토리">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="directory/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.1
+Build Date UTC : 2020-05-19 05:32:25
+-->
