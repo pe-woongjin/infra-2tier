@@ -38,11 +38,6 @@ resource "aws_iam_role_policy_attachment" "ec2-role-attach-s3" {
   policy_arn  = "arn:aws:iam::aws:policy/AmazonS3FullAccess"
 }
 
-resource "aws_iam_role_policy_attachment" "ec2-role-attach-cdr" {
-  role        = aws_iam_role.codedeploy-ec2-role.name
-  policy_arn  = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
-}
-
 resource "aws_iam_role" "codedeploy-role" {
   name = "codedeploy-role"
 
