@@ -1,0 +1,11 @@
+site_name: Infra-2tier
+
+nav:
+  - 소개: index.md
+  - 디렉토리: directory.md
+  - tf-repository: repository.md
+  - vpc: vpc.md
+  - elb: elb.md
+  - iam: iam.md
+
+theme: readthedocs
