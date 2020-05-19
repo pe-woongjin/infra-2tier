@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "infra2tier-lock-table" {
+resource "aws_dynamodb_table" "terraform-lock-table" {
   name            = var.dynamodb_tbl
 
   // The number of read units for this table

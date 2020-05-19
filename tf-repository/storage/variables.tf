@@ -14,11 +14,11 @@ variable "environment" {
 variable "s3_log" {
   description = "s3 log bucket name"
   type = string
-  default = "infra2tier-tfstates-log"
+  default = "terraform-tfstates-log"
 }
 
 variable "s3_mgmt" {
   description = "s3 mgmt bucket name"
   type = string
-  default = "infra2tier-tfstates-mgmt"
+  default = "terraform-tfstates-mgmt"
 }

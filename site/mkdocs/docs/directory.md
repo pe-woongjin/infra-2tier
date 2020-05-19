@@ -11,41 +11,8 @@ infra-2tier의 디렉토리 구조입니다.
 >
 ![Screenshot](img/backend.png)
 >
-#### 1.1 tf-repository 인프라 구축 방법  
-```console
-cmd $ cd ~
-cmd $ mkdir workspace
-cmd $ cd workspace
-
-/* git clone */
-cmd $ git clone https://github.com/pe-woongjin/infra-2tier.git
-cmd $ cd ~/workspace/infra-2tier/tf-repository
-
-/* terraform */
-cmd $ terraform init
-cmd $ terraform plan
-cmd $ terraform apply
-```
-
-
 ### 2. modules
 >infra-2tier의 베이스 모듈인 `elb`, `iam`, `vpc` 구성되어 있습니다.
-> 
-#### 2.1 modules 인프라 구축 방법  
-```console
- cmd $ cd ~
- cmd $ mkdir workspace
- cmd $ cd workspace
- 
- /* git clone */
- cmd $ git clone https://github.com/pe-woongjin/infra-2tier.git
- cmd $ cd ~/workspace/infra-2tier/modules
- 
- /* terraform */
- cmd $ terraform init
- cmd $ terraform plan
- cmd $ terraform apply
-```
 >
 ### 3. site
 #### 3.1 docs

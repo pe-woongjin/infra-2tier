@@ -10,7 +10,7 @@ variable "team_name" {
 variable "service_name" {
   description = "name of service"
   type = string
-  default = "infra2tier"
+  default = "base"
 }
 
 variable "service_version" {

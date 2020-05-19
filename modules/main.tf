@@ -2,10 +2,10 @@ terraform {
   required_version = "~> 0.12.20"
 
   backend "s3" {
-    bucket          = "infra2tier-tfstates-mgmt"
-    key             = "infra2tier/base/terraform.tfstate"
+    bucket          = "terraform-tfstates-mgmt"
+    key             = "terraform/infra-2tier/base/terraform.tfstate"
     region          = "ap-northeast-2"
-    dynamodb_table  = "infra2tier-lock-table"
+    dynamodb_table  = "terraform-lock-table"
     encrypt         = true
     acl             = "bucket-owner-full-control"
   }
