@@ -48,7 +48,8 @@ cmd $ terraform init
 cmd $ terraform plan
 cmd $ terraform apply
 ```
->
+**※ tf-repository가 이미 구현되어 있을 때 오류**
+![Screenshot](img/repository-error.png)
 ###### 2.4 modules 인프라 구축
 ```console
 cmd $ cd ~/workspace/infra-2tier/modules
@@ -58,4 +59,5 @@ cmd $ terraform init
 cmd $ terraform plan
 cmd $ terraform apply
 ```
->
+**※ tf-repository가 먼저 구현되지 않았을 때 오류**
+![Screenshot](img/backend.png)

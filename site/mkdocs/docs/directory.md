@@ -9,8 +9,6 @@ infra-2tier의 디렉토리 구조입니다.
 >**modules 보다 먼저 구현**되어야 합니다.  
 >(S3, DynamoDB가 먼저 구현되어야, modules에서 사용할 수 있기 때문입니다.)
 >
-![Screenshot](img/backend.png)
->
 ### 2. modules
 >infra-2tier의 베이스 모듈인 `elb`, `iam`, `vpc` 구성되어 있습니다.
 >
