@@ -32,3 +32,4 @@ override.tf.json
 
 # mkdocs
 /mkdocs/site/
+/site/mkdocs/site/
