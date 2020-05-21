@@ -18,19 +18,26 @@ provider "aws" {
 }
 
 module "vpc" {
-  source = "./vpc"
+  source = "./modules/vpc"
+}
+
+module "iam" {
+  source = "./modules/iam"
 }
 
 module "elb" {
-  source = "./elb"
+  source = "./modules/elb"
 
   # vpc
   vpc_id = module.vpc.vpc_id
 
   # subnets
-  pub_sn_ids = module.vpc.pub_sn_ids
+  pub_sn_ids = module.ming.pub_sn_ids
 }
 
-module "iam" {
-  source = "./iam"
+module "ming" {
+  source = "./services/ming"
+
+  # vpc
+  vpc_id = module.vpc.vpc_id
 }

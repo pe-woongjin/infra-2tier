@@ -37,7 +37,7 @@ locals {
 
 
 # ######################
-# Data
+# Output
 # ######################
 # vpc
 variable "vpc_id" {

@@ -1,5 +1,5 @@
 resource "aws_route_table" "pub-rt" {
-  vpc_id       = aws_vpc.vpc.id
+  vpc_id       = var.vpc_id
   count        = length(var.public_rt_tag_names)
   depends_on   = [ aws_internet_gateway.igw ]
 

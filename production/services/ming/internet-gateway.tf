@@ -1,5 +1,5 @@
 resource "aws_internet_gateway" "igw" {
-  vpc_id = aws_vpc.vpc.id
+  vpc_id = var.vpc_id
 
   tags = {
     Name          = "${local.resrc_prefix_nm}-igw"
