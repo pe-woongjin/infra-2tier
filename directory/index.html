@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>디렉토리 - Infra-2tier</title>
+  <title>Directory - infra-2tier-base</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "\ub514\ub809\ud1a0\ub9ac";
+    var mkdocs_page_name = "Directory";
     var mkdocs_page_input_path = "directory.md";
     var mkdocs_page_url = null;
   </script>
@@ -38,7 +38,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> Infra-2tier</a>
+        <a href=".." class="icon icon-home"> infra-2tier-base</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
@@ -48,12 +48,28 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">소개</a>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Info</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../architecture/">Architecture</a>
                     </li>
                 </ul>
                 <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">디렉토리</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Directory</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1-tf-repository">1. tf-repository</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2-modules">2. modules</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3-site">3. site</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#31-docs">3.1 docs</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#32-mkdocs">3.2 mkdocs</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -62,15 +78,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../vpc/">vpc</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../elb/">elb</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../iam/">iam</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../modules/">modules</a>
                     </li>
                 </ul>
       </div>
@@ -82,7 +90,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">Infra-2tier</a>
+        <a href="..">infra-2tier-base</a>
       </nav>
 
       
@@ -94,7 +102,7 @@
     
       
     
-    <li>디렉토리</li>
+    <li>Directory</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -105,40 +113,31 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="infra-2tier-directory">Infra-2tier Directory</h2>
+                <h2 id="infra-2tier-base-directory">infra-2tier-base Directory</h2>
 <hr />
 <p>infra-2tier의 디렉토리 구조입니다.</p>
-<h2 id="_1"><img alt="Screenshot" src="../img/directory.png" /></h2>
-<h3 id="1-modules">1. modules</h3>
+<hr />
+<p><img alt="Screenshot" src="../img/directory.png" /></p>
+<h3 id="1-tf-repository">1. tf-repository</h3>
 <blockquote>
-<p>infra-2tier의 베이스 모듈로 구성되어 있습니다.  </p>
-</blockquote>
-<h4 id="11-elb">1.1 elb</h4>
-<blockquote>
-<p>기본 <code>AWS ALB</code>가 구성되어 있습니다.<br />
-listner와 listener rules는 베이스 모듈에 attach되는 프로젝트에서 추가하여 사용하실 수 있습니다.  </p>
-</blockquote>
-<h4 id="12-iam">1.2 iam</h4>
-<blockquote>
-<p>EC2, Code-Deploy에서 사용될 <code>iam role</code>이 구현되어 있습니다.  </p>
-</blockquote>
-<h4 id="13-tf-repository">1.3 tf-repository</h4>
-<blockquote>
-<p><code>S3</code> 저장소와 Lock 관리를 위한 <code>DynamoDB</code>가 구현되어 있습니다.  </p>
-</blockquote>
-<h4 id="14-vpc">1.4 vpc</h4>
-<blockquote>
-<p><code>VPC</code>와 관련된 igw, nat, subnet, route table 등으로 구현되어 있습니다.<br />
+<p><code>S3</code> 저장소와 Lock 관리를 위한 <code>DynamoDB</code>가 구현되어 있습니다.<br />
+<strong>modules 보다 먼저 구현</strong>되어야 합니다.<br />
+(S3, DynamoDB가 먼저 구현되어야, modules에서 사용할 수 있기 때문입니다.)
 </p>
 </blockquote>
-<h3 id="2-site">2. site</h3>
-<h4 id="21-docs">2.1 docs</h4>
+<h3 id="2-modules">2. modules</h3>
 <blockquote>
-<p>infra-2tier <code>명세 및 아키텍쳐</code>와 관련된 문서가 포함되어 있습니다.  </p>
+<p>infra-2tier의 베이스 모듈인 <code>elb</code>, <code>iam</code>, <code>vpc</code> 구성되어 있습니다.
+</p>
 </blockquote>
-<h4 id="22-mkdocs">2.2 mkdocs</h4>
+<h3 id="3-site">3. site</h3>
+<h4 id="31-docs">3.1 docs</h4>
 <blockquote>
-<p><code>매뉴얼 가이드</code> 폴더입니다.<br />
+<p>infra-2tier-base<code>명세 및 아키텍쳐</code>와 관련된 문서가 포함되어 있습니다.  </p>
+</blockquote>
+<h4 id="32-mkdocs">3.2 mkdocs</h4>
+<blockquote>
+<p><code>매뉴얼 가이드</code> 폴더입니다.  <br />
 mkdocs 마크다운 방식으로 글쓰기를 하며, <code>mkdocs serve</code>라는 명령어를 통해서 실시간으로 매뉴얼 내역을 확인할 수 있습니다. (<a href="https://www.mkdocs.org">mkdocs.org</a> 참고)  </p>
 </blockquote>
               
@@ -151,7 +150,7 @@ mkdocs 마크다운 방식으로 글쓰기를 하며, <code>mkdocs serve</code>�
         <a href="../repository/" class="btn btn-neutral float-right" title="tf-repository">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="소개"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../architecture/" class="btn btn-neutral" title="Architecture"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -177,7 +176,7 @@ mkdocs 마크다운 방식으로 글쓰기를 하며, <code>mkdocs serve</code>�
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../architecture/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../repository/" style="color: #fcfcfc">Next &raquo;</a></span>
