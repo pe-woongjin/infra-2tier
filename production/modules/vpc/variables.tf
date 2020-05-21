@@ -10,7 +10,7 @@ variable "team_name" {
 variable "service_name" {
   description = "name of service"
   type = string
-  default = "infra2tier"
+  default = "ming-2t"
 }
 
 variable "service_version" {
@@ -32,21 +32,16 @@ variable "region_nm" {
 }
 
 locals {
-  resrc_prefix_nm =  "${var.service_name}-${var.region_nm}-${var.environment}"
+  resrc_prefix_nm = "${var.service_name}-${var.region_nm}-${var.environment}"
 }
 
 
 # ######################
-# Data
+# VPC
 # ######################
-# vpc
-variable "vpc_id" {
-  description = "vpc id"
+# vpc cidr block
+variable "vpc_cidr_block" {
+  description = "cidr block of vpc"
   type = string
-}
-
-# public subnet ids
-variable "pub_sn_ids" {
-  description = "public subnet ids"
-  type = list(string)
+  default = "10.40.0.0/16"
 }

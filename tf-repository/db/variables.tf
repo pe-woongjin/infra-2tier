@@ -14,5 +14,5 @@ variable "environment" {
 variable "dynamodb_tbl" {
   description = "dynamo db table name"
   type = string
-  default = "infra2tier-lock-table"
+  default = "terraform-lock-table"
 }
