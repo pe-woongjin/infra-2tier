@@ -1,4 +1,4 @@
-## Infra-2tier Directory
+## infra-2tier-base Directory
 ---
 infra-2tier의 디렉토리 구조입니다.
 
@@ -14,7 +14,7 @@ infra-2tier의 디렉토리 구조입니다.
 >
 ### 3. site
 #### 3.1 docs
->infra-2tier `명세 및 아키텍쳐`와 관련된 문서가 포함되어 있습니다.  
+>infra-2tier-base`명세 및 아키텍쳐`와 관련된 문서가 포함되어 있습니다.  
 #### 3.2 mkdocs
 >`매뉴얼 가이드` 폴더입니다.    
 >mkdocs 마크다운 방식으로 글쓰기를 하며, `mkdocs serve`라는 명령어를 통해서 실시간으로 매뉴얼 내역을 확인할 수 있습니다. ([mkdocs.org](https://www.mkdocs.org) 참고)  

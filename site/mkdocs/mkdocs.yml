@@ -1,8 +1,9 @@
-site_name: Infra-2tier
+site_name: infra-2tier-base
 
 nav:
-  - 소개: index.md
-  - 디렉토리: directory.md
+  - Info: index.md
+  - Architecture: architecture.md
+  - Directory: directory.md
   - tf-repository: repository.md
   - modules: modules.md
 

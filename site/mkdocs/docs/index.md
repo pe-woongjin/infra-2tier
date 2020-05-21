@@ -1,6 +1,6 @@
-## Infra-2tier 소개
+## infra-2tie-baser 시작
 ---
-**Infra 2tier Architecture**를 Terraform으로 구현한 프로젝트입니다.    
+**Infra 2tier Architecture - base**를 Terraform으로 구현한 프로젝트입니다.    
 프로젝트 빌드 및 실행은 다음과 같은 순서로 이루어집니다.  
 >
 ##### 1. IAM 계정 생성 및 AWS CLI 를 통한 로컬 환경 구성
@@ -35,13 +35,13 @@ cmd $ mkdir workspace
 cmd $ cd workspace
 
 /* git clone */
-cmd $ git clone https://github.com/pe-woongjin/infra-2tier.git
+cmd $ git clone https://github.com/pe-woongjin/infra-2tier-base.git
 cmd $ cd ~/workspace/infra-2tier
 ```
 >
 ###### 2.3 tf-repository 인프라 구축
 ```console
-cmd $ cd ~/workspace/infra-2tier/tf-repository
+cmd $ cd ~/workspace/infra-2tier-base/tf-repository
 
 /* terraform */
 cmd $ terraform init
@@ -52,7 +52,7 @@ cmd $ terraform apply
 ![Screenshot](img/repository-error.png)
 ###### 2.4 modules 인프라 구축
 ```console
-cmd $ cd ~/workspace/infra-2tier/modules
+cmd $ cd ~/workspace/infra-2tier-base/modules
 
 /* terraform */
 cmd $ terraform init
