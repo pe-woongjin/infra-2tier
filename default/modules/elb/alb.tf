@@ -1,5 +1,5 @@
 resource "aws_alb" "alb" {
-  name                = "${local.resrc_prefix_nm}-alb"
+  name                = "${var.resrc_prefix_nm}-alb"
   load_balancer_type  = "application"
   internal            = false
   subnets             = var.pub_sn_ids
@@ -10,7 +10,7 @@ resource "aws_alb" "alb" {
   enable_deletion_protection = false
 
   tags = {
-    Name          = "${local.resrc_prefix_nm}-alb"
+    Name          = "${var.resrc_prefix_nm}-alb"
     Environment   = var.environment
   }
 }
