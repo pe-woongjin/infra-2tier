@@ -37,6 +37,17 @@ locals {
 
 
 # ######################
+# VPC
+# ######################
+# vpc cidr block
+variable "vpc_cidr_block" {
+  description = "cidr block of vpc"
+  type = string
+  default = "10.40.0.0/16"
+}
+
+
+# ######################
 # Subnet
 # ######################
 # public subnet
@@ -70,14 +81,4 @@ variable "public_rt_tag_names" {
       Name = "pub-rt"
     }
   ]
-}
-
-
-# ######################
-# Output
-# ######################
-# vpc
-variable "vpc_id" {
-  description = "vpc id"
-  type = string
 }
