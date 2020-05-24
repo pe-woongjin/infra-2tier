@@ -23,7 +23,7 @@ resource "aws_iam_role" "codedeploy-ec2-role" {
 EOF
 
   tags = {
-    Name          = "${local.resrc_prefix_nm}-ec2-role"
+    Name          = "${var.resrc_prefix_nm}-ec2-role"
     Environment   = var.environment
   }
 }
@@ -58,7 +58,7 @@ resource "aws_iam_role" "codedeploy-role" {
 EOF
 
   tags = {
-    Name          = "${local.resrc_prefix_nm}-codedeploy-role"
+    Name          = "${var.resrc_prefix_nm}-codedeploy-role"
     Environment   = var.environment
   }
 }

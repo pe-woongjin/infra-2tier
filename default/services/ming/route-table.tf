@@ -9,7 +9,7 @@ resource "aws_route_table" "pub-rt" {
   }
 
   tags = {
-    Name          = "${local.resrc_prefix_nm}-${lookup(var.public_rt_tag_names[count.index], "Name")}"
+    Name          = "${var.resrc_prefix_nm}-${lookup(var.public_rt_tag_names[count.index], "Name")}"
     Environment   = var.environment
   }
 }
